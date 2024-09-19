@@ -35,7 +35,16 @@ function Quiz() {
     <div className='quiz'>
       {showScore ? (
         <div className='score-section'>
-          You scored {score} out of {quizData.length}
+          <h2>You scored {score} out of {quizData.length}</h2>
+
+          <div className="quiz-review">
+            {quizData.map((questionItem, index) => (
+              <div key={index} className="quiz-review-item">
+                <h4>{index + 1}. {questionItem.question}</h4>
+                <p><strong>Correct Answer:</strong> {questionItem.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <>
